@@ -1,0 +1,40 @@
+
+#ca_rule_button {
+	width: 40px;
+}
+
+#ca_container {
+/*	margin: 0 auto;*/
+	margin-left: 100px;
+}
+
+
+#ca_slider_container {
+	margin-top: 30px;
+	margin-left: 30px;
+	width: 600px;
+}
+
+#ca_size_container {
+	margin: 30px;
+	width: 200px;
+	float: left;
+}
+
+#ca_text_input_container {
+	margin: 30px;
+	float: left;
+}
+
+#ca_slider_value {
+	min-height: 20px;
+	min-width: 20px;
+}
+
+#ca_canvas {
+	margin-left: 30px;
+}
+
+#ca_spacer {
+	clear: both;
+}

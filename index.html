@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="http://code.jquery.com/jquery-latest.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+	<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
+		
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	
+	<script src="js/processing.js"></script>
+	<script src="js/ca.js"></script>
+	
+  <script>
+	
+	jQuery(document).ready(function() {
+
+		startProcessing();
+				
+		jQuery("#ca_slider").slider({
+			range: false,
+			min: 0,
+			max: 255,
+			step: 1,
+			value: 30,
+			slide: function(event, ui) {
+				jQuery("#ca_text_value").val(ui.value);
+			},
+			stop: function(event, ui) {
+				ruleNum = ui.value;
+				pjs.redraw();
+			}
+		});
+		
+	});
+	
+	function textInput() {
+		ruleNum = parseInt(jQuery("#ca_text_value").val());
+		jQuery("#ca_slider").slider({value:ruleNum});
+		pjs.redraw();
+	}
+	
+	</script>
+	
+</head>
+<body>
+	
+	<div id="ca_container">
+	
+	<div id="ca_slider_container">
+		<div id="ca_slider"></div>
+	</div>
+	
+	
+	<div id="ca_size_container">
+		cell size:
+		<input type="radio" name="cell_size" id="cell1" value="1" onclick="cellSizeChanged(this.value)">1
+		<input type="radio" name="cell_size" id="cell2" value="2" onclick="cellSizeChanged(this.value)">2
+		<input type="radio" name="cell_size" id="cell3" value="3" onclick="cellSizeChanged(this.value)">3
+		<input type="radio" name="cell_size" id="cell5" value="5" onclick="cellSizeChanged(this.value)" checked="true">5
+	</div>
+	
+	<div id="ca_text_input_container">
+		rule #:
+		<input type="text" id="ca_text_value" size="5" value="30" />
+		<button id="ca_rule_button" onclick="textInput()" >Go</button>
+	</div>
+	
+	<div id="ca_spacer"></div>
+	
+	<canvas id="ca_canvas"></canvas>
+	
+	</div>
+	
+	
+</body>
+</html>
